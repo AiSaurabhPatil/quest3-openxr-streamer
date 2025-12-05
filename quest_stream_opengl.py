@@ -75,6 +75,8 @@ class QuestStreamer:
         elif state == xr.SessionState.FOCUSED:
             self.session_focused = True
             print("Session Focused!")
+            # Print which controller profile is active (for debugging)
+            self.input_mgr.print_current_interaction_profile()
         elif state == xr.SessionState.VISIBLE:
             self.session_focused = False
             print("Session Visible (Lost Focus)")
@@ -104,18 +106,32 @@ class QuestStreamer:
                 
                 display_time = frame_state.predicted_display_time
                 
-                # Get Data
+                # Get Pose Data
                 left_aim_data = self.input_mgr.get_pose_data(self.input_mgr.left_aim_space, display_time)
                 right_aim_data = self.input_mgr.get_pose_data(self.input_mgr.right_aim_space, display_time)
                 
+                # Get Button/Analog Inputs
+                left_inputs = self.input_mgr.get_input_data("left")
+                right_inputs = self.input_mgr.get_input_data("right")
+                
                 # Publish to ROS
-                self.ros_node.publish_data(left_aim_data, right_aim_data, {}, {})
+                self.ros_node.publish_data(left_aim_data, right_aim_data, left_inputs, right_inputs)
                 rclpy.spin_once(self.ros_node, timeout_sec=0)
 
                 self.input_mgr.print_pose("Left Aim ", self.input_mgr.left_aim_space, display_time)
                 self.input_mgr.print_pose("Right Aim", self.input_mgr.right_aim_space, display_time)
                 self.input_mgr.print_pose("Left Grip", self.input_mgr.left_grip_space, display_time)
                 self.input_mgr.print_pose("Right Grip", self.input_mgr.right_grip_space, display_time)
+                
+                # Print Button Inputs
+                print(f"Left  Inputs: Trig={left_inputs.get('trigger', 0):.2f} Grip={left_inputs.get('squeeze', 0):.2f} "
+                      f"Stick=({left_inputs.get('thumbstick_x', 0):.2f},{left_inputs.get('thumbstick_y', 0):.2f}) "
+                      f"X={int(left_inputs.get('button_a_x', 0))} Y={int(left_inputs.get('button_b_y', 0))} "
+                      f"Menu={int(left_inputs.get('menu', 0))} StickClick={int(left_inputs.get('thumbstick_click', 0))}")
+                print(f"Right Inputs: Trig={right_inputs.get('trigger', 0):.2f} Grip={right_inputs.get('squeeze', 0):.2f} "
+                      f"Stick=({right_inputs.get('thumbstick_x', 0):.2f},{right_inputs.get('thumbstick_y', 0):.2f}) "
+                      f"A={int(right_inputs.get('button_a_x', 0))} B={int(right_inputs.get('button_b_y', 0))} "
+                      f"StickClick={int(right_inputs.get('thumbstick_click', 0))}")
             else:
                 print("Waiting for session focus...")
 
