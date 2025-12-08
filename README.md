@@ -154,8 +154,7 @@ Control a **Franka Panda** robot with your Quest controller.
 ├── webxr_ros_bridge.py     # WebSocket → ROS bridge
 ├── isaac_teleop.py         # Isaac Sim Franka control
 ├── mujoco_sim.py           # MuJoCo verification
-├── run_isaac_teleop.sh     # Isaac Sim launcher
-└── fastdds_vpn.xml         # DDS config for VPN
+└── run_isaac_teleop.sh     # Isaac Sim launcher
 ```
 
 ## License
