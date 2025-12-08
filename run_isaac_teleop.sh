@@ -6,7 +6,7 @@ export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
 # Adjust this path if your Isaac Sim installation is different
 # The log indicated: /home/saurabh/isaac_sim/exts/isaacsim.ros2.bridge/humble/lib
-ISAAC_SIM_PATH="/home/saurabh/isaac_sim"
+ISAAC_SIM_PATH="/path/to/isaac_sim"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ISAAC_SIM_PATH/exts/isaacsim.ros2.bridge/humble/lib
 
 # Run the python script using Isaac Sim's python wrapper

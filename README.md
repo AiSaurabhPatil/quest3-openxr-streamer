@@ -15,14 +15,14 @@ Stream real-time controller data (pose, buttons, triggers) from Meta Quest 3 to 
 ### Prerequisites
 
 - Meta Quest 3 with USB cable
-- Linux PC with ROS 2 Humble
+- Linux PC with ROS 2 Humble (tested on Ubuntu 22.04)
 - Python 3.10+, ADB installed
 
 ### Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/quest3-openxr-streamer.git
-cd quest3-openxr-streamer
+git clone https://github.com/AiSaurabhPatil/quest3-streamer.git
+cd quest3-streamer
 
 # Create virtual environment with ROS access
 uv venv .venv --python /usr/bin/python3 --system-site-packages
@@ -56,7 +56,7 @@ adb devices
 
 **Terminal 1** - HTTP Server:
 ```bash
-cd /path/to/quest3-openxr-streamer
+cd /path/to/quest3-streamer
 python -m http.server 8080
 ```
 
@@ -136,15 +136,6 @@ Control a **Franka Panda** robot with your Quest controller.
 2. Move hand to control robot end-effector
 3. Press trigger or grip to close gripper
 
-### 3. VPN / Remote Setup
-
-For Isaac Sim on a remote workstation:
-
-1. Edit `fastdds_vpn.xml` with your VPN IPs
-2. Export on **BOTH** machines:
-   ```bash
-   export FASTRTPS_DEFAULT_PROFILES_FILE=/path/to/fastdds_vpn.xml
-   ```
 
 ## Troubleshooting
 

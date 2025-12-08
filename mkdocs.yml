@@ -1,7 +1,7 @@
 site_name: Quest 3 VR Teleoperation
 site_description: Real-time VR teleoperation documentation for Meta Quest 3 and ROS 2.
 site_author: Maintainer
-repo_url: https://github.com/YOUR_USERNAME/quest3-openxr-streamer
+repo_url: https://github.com/AiSaurabhPatil/quest3-streamer
 edit_uri: edit/main/docs/
 
 theme:

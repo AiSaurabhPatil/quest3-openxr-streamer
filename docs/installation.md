@@ -20,8 +20,8 @@ Before setting up the project, ensure you have the following hardware and softwa
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/quest3-openxr-streamer.git
-cd quest3-openxr-streamer
+git clone https://github.com/AiSaurabhPatil/quest3-streamer.git
+cd quest3-streamer
 ```
 
 ### 2. Set Up Virtual Environment

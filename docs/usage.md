@@ -34,7 +34,7 @@ You will need three terminal tabs.
 **Terminal 1: HTTP Server**
 Host the WebXR application.
 ```bash
-cd /path/to/quest3-openxr-streamer
+cd /path/to/quest3-streamer
 python -m http.server 8080
 ```
 
