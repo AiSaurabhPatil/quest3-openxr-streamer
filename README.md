@@ -1,6 +1,6 @@
 # Quest 3 VR Teleoperation
 
-Stream real-time controller data (pose, buttons, triggers) from Meta Quest 3 to ROS 2 for robot teleoperation.
+Stream real-time controller data (pose, buttons, triggers) from Meta Quest 3 to ROS 2 for robot teleoperation using WebXR.
 
 ## Features
 
@@ -32,10 +32,10 @@ source .venv/bin/activate
 uv pip install -r requirements.txt
 
 # System dependencies
-sudo apt-get install libglfw3 libgl1-mesa-glx android-tools-adb
+sudo apt-get install android-tools-adb
 ```
 
-## Usage: WebXR Streaming (Recommended)
+## Usage: WebXR Streaming
 
 WebXR runs natively on Quest and captures **all** controller inputs reliably.
 
@@ -146,18 +146,6 @@ For Isaac Sim on a remote workstation:
    export FASTRTPS_DEFAULT_PROFILES_FILE=/path/to/fastdds_vpn.xml
    ```
 
-## Alternative: OpenXR + WiVRn
-
-For pose-only tracking (buttons may not work):
-
-```bash
-source /opt/ros/humble/setup.bash
-source .venv/bin/activate
-WAYLAND_DISPLAY= XDG_SESSION_TYPE=x11 python quest_stream_opengl.py
-```
-
-> **Note**: WiVRn doesn't support button input passthrough for Quest 3. Use WebXR instead for full input capture.
-
 ## Troubleshooting
 
 | Issue | Solution |
@@ -175,7 +163,6 @@ WAYLAND_DISPLAY= XDG_SESSION_TYPE=x11 python quest_stream_opengl.py
 ├── webxr_ros_bridge.py     # WebSocket → ROS bridge
 ├── isaac_teleop.py         # Isaac Sim Franka control
 ├── mujoco_sim.py           # MuJoCo verification
-├── quest_stream_opengl.py  # OpenXR/WiVRn (alternative)
 ├── run_isaac_teleop.sh     # Isaac Sim launcher
 └── fastdds_vpn.xml         # DDS config for VPN
 ```
