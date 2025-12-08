@@ -10,6 +10,10 @@ Stream real-time controller data (pose, buttons, triggers) from Meta Quest 3 to 
 - **Isaac Sim Ready**: Includes Franka Panda teleoperation with dynamic calibration
 - **MuJoCo Verification**: Test coordinate mapping before Isaac Sim
 
+## Video Tutorial
+
+<video src="tutorial_video/quest3-streamer.mp4" controls="controls" style="max-width: 100%;" width="100%"></video>
+
 ## Quick Start
 
 ### Prerequisites
