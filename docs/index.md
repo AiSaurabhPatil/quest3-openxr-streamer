@@ -23,6 +23,7 @@ The primary goal of this codebase is to enable real-time, low-latency teleoperat
 ## Architecture Overview
 
 The system consists of three main components:
+
 1.  **WebXR Client (Quest 3)**: A web application running on the headset that captures XR input data.
 2.  **ROS Bridge (PC)**: A Python script (`webxr_ros_bridge.py`) that acts as a WebSocket server, receiving data from the headset and publishing it as ROS 2 topics.
 3.  **Robot Control Node**: Nodes that subscribe to the ROS topics to control physical or simulated robots (e.g., `isaac_teleop.py`).
