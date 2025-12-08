@@ -14,7 +14,11 @@ The primary goal of this codebase is to enable real-time, low-latency teleoperat
 - **ROS 2 Integration**: Seamlessly integrates with the ROS 2 ecosystem by publishing standard `PoseStamped` and `Joy` messages.
 - **Simulation Support**: Ready-to-use integration with:
     - **Isaac Sim**: High-fidelity simulation with dynamic calibration.
-    - **MuJoCo**: Lightweight physics simulation for quick verification.
+    - **MuJoCo Verification**: Lightweight physics simulation for quick verification.
+
+## Video Tutorial
+
+<video src="assets/quest3-streamer.mp4" controls="controls" style="max-width: 100%;" width="100%"></video>
 
 ## Architecture Overview
 
